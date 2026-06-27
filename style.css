@@ -17,6 +17,7 @@ body{
     min-width: 0;
     align-items: center;
     justify-content: center;
+    aspect-ratio: 1/1;
     
 
     
@@ -26,8 +27,7 @@ body{
     border: solid;
     margin: 1px;
     padding: 2px ;
-    width: 50%;
-    aspect-ratio: 1/1;
+    width: 80%;
     justify-content: center;
     align-items: cente;
           

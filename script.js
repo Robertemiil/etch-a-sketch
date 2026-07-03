@@ -12,11 +12,11 @@ const cellsLimit = 25;
 const resetBtn = document.createElement('button');
 resetBtn.textContent ='reset';
 
-//FIXME cells > 0 ? container.after(resetBtn) : null ;
+
 
 
 const cellQty = ()=>{
-   const qty = Number(prompt('how many cells do you need ?'));
+  const qty = Number(prompt('how many cells do you need ?'));
    if (!Number.isInteger(qty) || qty <= 0) {
      alert('Please enter a valid positive number.');
      return;
@@ -32,9 +32,16 @@ const cellQty = ()=>{
      container.appendChild(cell);
     }
   
-
+   
    cells = totalCells;
    console.log(cells);
+
+  if(cells!=0){
+  container.addEventListener('mouseover', (e)=>{
+  const target = e.target;
+  target.style.backgroundColor = randomColor();
+  });
+ };
 }
 
 
@@ -44,10 +51,8 @@ qtyButton.addEventListener('click',()=>{
      return alert('cells exceeded the limits , please reset');
  }
 );
-container.addEventListener('mouseover', (e)=>{
-  const target = e.target;
-  target.style.backgroundColor = randomColor();
-});
+
+
 
 function randomColor(){
   let result;

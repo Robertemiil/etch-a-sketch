@@ -11,6 +11,7 @@ let cells  = 0;
 const cellsLimit = 25;
 const resetBtn = document.createElement('button');
 resetBtn.textContent ='reset';
+
 //FIXME cells > 0 ? container.after(resetBtn) : null ;
 
 
@@ -21,13 +22,18 @@ const cellQty = ()=>{
      return;
    }
 
-   for (let i = 0; i < qty; i++) {
+   const totalCells = cells + qty;
+   container.style.gridTemplateColumns = `repeat(${qty}, 1fr)`;
+   container.style.gridTemplateRows = `repeat(${qty}, 1fr)`;
+    
+   for (let i = 0; i < qty*qty; i++) {
      const cell = document.createElement('div');
      cell.classList.add(`div${i}`, 'grid-cell');
      container.appendChild(cell);
-   }
+    }
+  
 
-   cells += qty;
+   cells = totalCells;
    console.log(cells);
 }
 
@@ -38,3 +44,19 @@ qtyButton.addEventListener('click',()=>{
      return alert('cells exceeded the limits , please reset');
  }
 );
+container.addEventListener('mouseover', (e)=>{
+  const target = e.target;
+  target.style.backgroundColor = randomColor();
+});
+
+function randomColor(){
+  let result;
+  let red = Math.round(Math.random()*250);
+  let green = Math.round(Math.random()*250);
+  let blue = Math.round(Math.random()*250);
+  let alpha = Math.random() + 0.1;
+
+  return  result = `rgba(${red},${green},${blue},${alpha})`; 
+};
+  
+

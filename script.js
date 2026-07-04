@@ -21,19 +21,18 @@ navBar.appendChild(resetBtn);
 const cellQty = ()=>{
   reset(container);
   const qty = Number(prompt('how many cells do you need ?'));
-  qtyButton.addEventListener('click',()=>{
-    if(qty <= cellsLimit)return qty;
+  
 
-    else if(qty >= cellsLimit) 
+    if(qty > cellsLimit) 
     return alert('cells exceeded the limits , please try a number below 25');
 
-    if(!Number.isInteger(qty) || qty <= 0) {
+    if(!Number.isInteger(qty) || Number.isInteger(qty) <= 0) {
      alert('Please enter a valid positive number.');
      return;
     }
 
-  }
-   );
+  
+   
   
    //make cells squared
    const totalCells = cells + qty;
@@ -48,7 +47,9 @@ const cellQty = ()=>{
    //For Test purposes
    cells = totalCells;
    console.log(cells);
-  //conditional statement avoid event 
+  
+}
+//conditional statement avoid event 
   //from happening on blank container 
   if(cells!=0){
   container.addEventListener('mouseover', (e)=>{
@@ -57,7 +58,6 @@ const cellQty = ()=>{
   target.style.backgroundColor = randomColor();
   });
  };
-}
 
 qtyButton.addEventListener('click',()=>cellQty());
 

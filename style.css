@@ -47,7 +47,23 @@ header{
 }
 .navBar{
     margin-top: 0;
-    border: solid red;
     display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+.navBar>button{
     
+    background-color: rgba(0, 0, 0, 0.882);
+    padding: 4px;
+    margin: 4px;
+    color :beige;
+    font-family: monospace;       
+    cursor: pointer;
+    transition: background-color 0.8s ease,color 0.8s ease, padding 0.4s;
+}
+.navBar>button:hover{
+ background-color: rgba(0, 0, 0, 0.788);
+ padding: 7px;
+ border-radius: 5px;
 }
